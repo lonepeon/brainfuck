@@ -1,0 +1,74 @@
+use std::io::Read;
+
+struct Memory {
+    cells: Vec<u8>,
+    index: usize,
+}
+
+impl Memory {
+    pub fn new(memory: usize) -> Self {
+        Self {
+            cells: vec![0; memory],
+            index: 0,
+        }
+    }
+
+    pub fn move_to_cell(&mut self, n: usize) {
+        self.index = n;
+        if self.index >= self.cells.len() {
+            self.cells.resize(self.index + 1, 0);
+        }
+    }
+
+    pub fn current_cell_value(&self) -> u8 {
+        self.cells[self.index]
+    }
+
+    pub fn set_current_cell_value(&mut self, value: u8) {
+        self.cells[self.index] = value;
+    }
+
+    pub fn increment_cell(&mut self, n: u8) {
+        let value = self.cells[self.index];
+        let new_value = if n < 255 - value {
+            value + n
+        } else {
+            n - (255 - value)
+        };
+
+        self.cells[self.index] = new_value;
+    }
+
+    pub fn decrement_cell(&mut self, n: u8) {
+        let value = self.cells[self.index];
+        let new_value = if n > value {
+            255 - (n - value)
+        } else {
+            value - n
+        };
+
+        self.cells[self.index] = new_value;
+    }
+}
+
+fn main() {
+    let stdin = std::io::stdin();
+    let mut reader = std::io::BufReader::new(stdin);
+    let mut mem = Memory::new(4096);
+
+    
+
+    
+    mem.increment_cell(8);
+    
+    while mem.current_cell_value() != 0 {
+    
+    mem.move_to_cell(mem.index + 1);
+    
+    mem.increment_cell(4);
+    
+    }
+    
+    print!("{}", mem.current_cell_value() as char);
+    
+}
