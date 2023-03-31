@@ -1,8 +1,10 @@
+[![codecov](https://codecov.io/gh/lonepeon/brainfuck/branch/main/graph/badge.svg?token=HC7WSVDRO2)](https://codecov.io/gh/lonepeon/brainfuck)
+
 # Brainfuck
 
 A little [Brainfuck interpreter and compiler](https://en.wikipedia.org/wiki/Brainfuck).
 
-Some code examples copied from [Wikipedia](https://en.wikipedia.org/wiki/Brainfuck) and [Brainfuck.org](http://brainfuck.org/) are available in the examples folder. 
+Some code examples copied from [Wikipedia](https://en.wikipedia.org/wiki/Brainfuck) and [Brainfuck.org](http://brainfuck.org/) are available in the examples folder.
 
 ## Usage
 
@@ -16,18 +18,18 @@ Arguments:
 Options:
   -m, --memory <MEMORY>
           Memory allocated when the brainfuck program starts. This is the initial memory but it can grow bigger if required
-          
+
           [default: 4096]
 
   -x, --execution <EXECUTION>
           Define how the current program should behave
-          
+
           [default: interpreter]
           [possible values: interpreter, compiler]
 
   -o, --output-dir <OUTPUT_FOLDER>
           Define where the compiled program should be generated. It's only used when using compiler execution mode
-          
+
           [default: .]
 
   -h, --help
